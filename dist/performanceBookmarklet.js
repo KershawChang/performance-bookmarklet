@@ -286,7 +286,7 @@ pieChartComponent.init = function () {
 		return domain;
 	});
 
-	setupChart("Requests by Domain", requestsByDomainData, ["Domains Total: " + data.requestsByDomain.length], [{ name: "Requests", field: "count" }, { name: "Avg. Duration (ms)", field: "durationAverage" }, { name: "Duration Parallel (ms)", field: "durationTotalParallel" }, { name: "Duration Sum (ms)", field: "durationTotal" }], "pie-request-by-domain");
+	setupChart("Requests by Domain", requestsByDomainData, ["Domains Total: " + data.requestsByDomain.length], [{ name: "Requests", field: "count" }, { name: "Avg. Network Latency (ms)", field: "durationAverage" }, { name: "Duration Parallel (ms)", field: "durationTotalParallel" }, { name: "Network Latency Sum (ms)", field: "durationTotal" }], "pie-request-by-domain");
 
 	setupChart("Requests by Initiator Type", data.initiatorTypeCounts.map(function (initiatorype) {
 		initiatorype.perc = initiatorype.count / requestsUnit;
