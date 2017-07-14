@@ -251,6 +251,11 @@ pieChartComponent.init = function () {
 		chartHolder.appendChild(dom.newTag("h1", { text: title }));
 		chartHolder.appendChild(pieChartHelpers.createPieChart(chartData, 400));
 		chartHolder.appendChild(dom.newTag("p", { text: "Total Requests: " + data.requestsOnly.length }));
+		var totalDuration = 0;
+		data.requestsOnly.forEach(function (currR) {
+			totalDuration += currR.duration;
+		});
+		chartHolder.appendChild(dom.newTag("p", { text: "Total Duration: " + totalDuration }));
 		if (countTexts && countTexts.length) {
 			countTexts.forEach(function (countText) {
 				chartHolder.appendChild(dom.newTag("p", { text: countText }, "margin-top:-1em"));
