@@ -41,7 +41,7 @@ summaryTilesComponent.init = function(){
 		createTile(dom.combineNodes(dom.newTag("abbr", {title : "Top Level Domain", text : "TLD"}), " & Subdomain Requests"), data.currAndSubdomainRequests||"0"),
 		createTile("Total", data.perfTiming.loadEventEnd - data.perfTiming.navigationStart + "ms", 40),
 		createTile("Time to First Byte", data.perfTiming.responseStart - data.perfTiming.navigationStart + "ms", 40),
-		createTile(dom.newTag("span", {title : "domLoading to domContentLoadedEventStart", text : "DOM Content Loading"}), data.perfTiming.domContentLoadedEventStart - data.perfTiming.domLoading + "ms", 40),
+		createTile(dom.newTag("span", {title : "Network Latency", text : "Network Latency"}), data.perfTiming.responseEnd - data.perfTiming.fetchStart + "ms", 40),
 		createTile(dom.newTag("span", {title : "domLoading to loadEventStart", text : "DOM Processing"}), data.perfTiming.domComplete - data.perfTiming.domLoading + "ms", 40)
 	].forEach(function(tile){
 		tilesHolder.appendChild(tile);
