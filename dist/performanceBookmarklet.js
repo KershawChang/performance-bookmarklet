@@ -765,7 +765,7 @@ data.requestsOnly.forEach(function (currR) {
 
 	var lastResponseEnd = tempResponseEnd[currR.domain] || 0;
 
-	currR.duration = entry.duration || currR.responseEnd - currR.startTime;
+	currR.duration = currR.responseEnd - currR.fetchStart;
 
 	if (lastResponseEnd <= currR.startTime) {
 		entry.durationTotalParallel = (entry.durationTotalParallel || 0) + currR.duration;
