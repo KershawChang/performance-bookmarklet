@@ -256,6 +256,8 @@ pieChartComponent.init = function () {
 			totalDuration += currR.duration;
 		});
 		chartHolder.appendChild(dom.newTag("p", { text: "Total Duration: " + totalDuration }));
+		var averageDuration = Math.round(totalDuration / data.requestsOnly.length);
+		chartHolder.appendChild(dom.newTag("p", { text: "Average Duration: " + averageDuration }));
 		if (countTexts && countTexts.length) {
 			countTexts.forEach(function (countText) {
 				chartHolder.appendChild(dom.newTag("p", { text: countText }, "margin-top:-1em"));
@@ -770,7 +772,7 @@ data.requestsOnly.forEach(function (currR) {
 
 	var lastResponseEnd = tempResponseEnd[currR.domain] || 0;
 
-	currR.duration = currR.responseEnd - currR.fetchStart;
+	currR.duration = currR.requestStart - currR.fetchStart;
 
 	if (lastResponseEnd <= currR.startTime) {
 		entry.durationTotalParallel = (entry.durationTotalParallel || 0) + currR.duration;
